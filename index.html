@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aayushi</title>
+    <link rel="icon" type="image/x-icon" href="images/11.webp" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: cursive;
+    }
+
+    body {
+      display: flex;
+      height: 100vh;
+      justify-content: center;
+      align-items: center;
+      background-color: pink;
+      position: relative;
+      margin: 0;
+    }
+
+    .hey {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 80%; /* Adjusted width for small screens */
+      max-width: 400px; /* Added max-width to limit the width on larger screens */
+      background-color: #fff;
+      height: 200px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      padding: 20px;
+    }
+
+    .hey p {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      font-size: 18px; /* Adjusted font size for small screens */
+      color: #333;
+    }
+
+    .btns {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+      width: 100%; /* Adjusted width for small screens */
+    }
+
+    .btns button {
+      font-size: 16px; /* Adjusted font size for small screens */
+      width: 80px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btns button#yes {
+      background-color: #4caf50;
+      color: #fff;
+    }
+
+    .btns button#no {
+      background-color: #ff6347;
+      color: #fff;
+    }
+
+    .btns button:hover {
+      background-color: #333;
+    }
+
+    @media (min-width: 600px) {
+      /* Add more styles for larger screens if needed */
+      .hey {
+        width: 35%;
+      }
+
+      .btns button {
+        font-size: 18px;
+      }
+    }
+  </style>
+  <body>
+    <div class="hey">
+      <p>Will you be my Valentine?</p>
+      <span id="show"></span>
+      <div class="btns" id="btns">
+        <button id="yes" onclick="showAlert()">Yes</button>
+        <button id="no" onclick="moveNoButton()">No</button>
+      </div>
+    </div>
+    <script>
+      const showEl = document.getElementById("show");
+
+      function showAlert() {
+        showEl.textContent = "Yay! Happy Valentine's Day!";
+      }
+
+      function moveNoButton() {
+        var noButton = document.getElementById("no");
+        var bodyWidth = document.body.clientWidth;
+        var bodyHeight = document.body.clientHeight;
+
+        // Calculate random positions
+        var randomX = Math.floor(
+          Math.random() * (bodyWidth - noButton.clientWidth)
+        );
+        var randomY = Math.floor(
+          Math.random() * (bodyHeight - noButton.clientHeight)
+        );
+
+        // Set the new position
+        noButton.style.position = "absolute";
+        noButton.style.left = randomX + "px";
+        noButton.style.top = randomY + "px";
+      }
+    </script>
+  </body>
+</html>
